@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Profile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/atasprofil">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Profil"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/cthprofil" />
+
+            <LinearLayout
+                android:id="@+id/linedtprofil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!---->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Nama"
+                    android:textColor="@color/abu2"
+                    android:textSize="16sp" />
+                <!---->
+                <TextView
+                    android:id="@+id/txnama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:paddingBottom="5dp"
+                    android:text="Isinama"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+                <!---->
+                <EditText
+                    android:id="@+id/ednama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <!---->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Email"
+                    android:textColor="@color/abu2"
+                    android:textSize="16sp" />
+                <!---->
+                <TextView
+                    android:id="@+id/txemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+                <!---->
+                <EditText
+                    android:id="@+id/edemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:paddingBottom="5dp"
+                    android:text="Isiemail"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <!---->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Role"
+                    android:textColor="@color/abu2"
+                    android:textSize="16sp" />
+                <!---->
+                <TextView
+                    android:id="@+id/txrole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+                <!---->
+                <EditText
+                    android:id="@+id/edrole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:paddingBottom="5dp"
+                    android:text="IsiRole"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linubhpas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/jud2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Kata Sandi Lama"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:id="@+id/edpasslama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:drawable_hide="@drawable/mataon"
+                    app:drawable_show="@drawable/mataoff"
+                    app:tint_color="@color/black" />
+
+                <TextView
+                    android:id="@+id/jud3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Kata Sandi Baru"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:id="@+id/edpassbaru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:drawable_hide="@drawable/mataon"
+                    app:drawable_show="@drawable/mataoff"
+                    app:tint_color="@color/black" />
+
+                <TextView
+                    android:id="@+id/jud4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Konfirmasi Kata Sandi Baru"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:id="@+id/edkonpasbaru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:fontFamily="@font/muliregular"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:drawable_hide="@drawable/mataon"
+                    app:drawable_show="@drawable/mataoff"
+                    app:tint_color="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/butedit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_hijau"
+                    android:fontFamily="@font/mulibold"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="EDIT"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/butgntpas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/button_hijau"
+                    android:fontFamily="@font/mulibold"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="UBAH PASSWORD"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/keluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/formborderhitam"
+                android:elevation="0.5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="7.5dp"
+                    android:layout_marginRight="16sp"
+                    android:layout_marginBottom="7.5dp"
+                    android:layout_toLeftOf="@id/a"
+                    android:fontFamily="@font/mulibold"
+                    android:text="Keluar"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/panahmaju"
+                    android:contentDescription="TODO" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menuNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

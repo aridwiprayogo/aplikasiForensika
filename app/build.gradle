@@ -1,0 +1,156 @@
+plugins {
+    id 'com.android.application'
+}
+apply from: "utils.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.project.forensika"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0.0"
+
+        buildConfigField 'String', "sessionapp", toJavaCodeString(session_app)
+        buildConfigField 'String', "secretkey", toJavaCodeString(secret_key)
+        buildConfigField 'String', "iv", toJavaCodeString(iv)
+        buildConfigField 'String', "page", toJavaCodeString(page_url)
+        buildConfigField 'String', "sessionname", toJavaCodeString(sessionkey)
+        buildConfigField 'String', "url_api", toJavaCodeString(url_api)
+        buildConfigField 'String', "url_daftar", toJavaCodeString(url_daftar)
+        buildConfigField 'String', "url_tambahcust", toJavaCodeString(url_tambahcust)
+        buildConfigField 'String', "url_login", toJavaCodeString(url_login)
+        buildConfigField 'String', "url_getcustomer", toJavaCodeString(url_getcustomer)
+        buildConfigField 'String', "url_editcust", toJavaCodeString(url_editcust)
+        buildConfigField 'String', "url_blokcust", toJavaCodeString(url_blokcust)
+        buildConfigField 'String', "url_addakses", toJavaCodeString(url_addakses)
+        buildConfigField 'String', "url_getakses", toJavaCodeString(url_getakses)
+        buildConfigField 'String', "url_editakses", toJavaCodeString(url_editakses)
+        buildConfigField 'String', "url_blokakses", toJavaCodeString(url_blokakses)
+        buildConfigField 'String', "url_tambahkategori", toJavaCodeString(url_tambahkategori)
+        buildConfigField 'String', "url_getkat", toJavaCodeString(url_getkat)
+        buildConfigField 'String', "url_editkat", toJavaCodeString(url_editkat)
+        buildConfigField 'String', "url_hapuskat", toJavaCodeString(url_hapuskat)
+        buildConfigField 'String', "url_getsubkat", toJavaCodeString(url_getsubkat)
+        buildConfigField 'String', "url_tambahsubkat", toJavaCodeString(url_tambahsubkat)
+        buildConfigField 'String', "url_edtsubkat", toJavaCodeString(url_edtsubkat)
+        buildConfigField 'String', "url_hapussubkat", toJavaCodeString(url_hapussubkat)
+        buildConfigField 'String', "url_tambahmenu", toJavaCodeString(url_tambahmenu)
+        buildConfigField 'String', "url_pilihansub", toJavaCodeString(url_pilihansub)
+        buildConfigField 'String', "url_getmenu", toJavaCodeString(url_getmenu)
+        buildConfigField 'String', "url_gambar", toJavaCodeString(url_gambar)
+        buildConfigField 'String', "url_editmenu", toJavaCodeString(url_editmenu)
+        buildConfigField 'String', "url_edtstatmenu", toJavaCodeString(url_edtstatmenu)
+        buildConfigField 'String', "url_pilihankat", toJavaCodeString(url_pilihankat)
+        buildConfigField 'String', "url_tambahlantai", toJavaCodeString(url_tambahlantai)
+        buildConfigField 'String', "url_getlantai", toJavaCodeString(url_getlantai)
+        buildConfigField 'String', "url_tambahmeja", toJavaCodeString(url_tambahmeja)
+        buildConfigField 'String', "url_getmeja", toJavaCodeString(url_getmeja)
+        buildConfigField 'String', "url_simpanmeja", toJavaCodeString(url_simpanmeja)
+        buildConfigField 'String', "url_hapusmeja", toJavaCodeString(url_hapusmeja)
+        buildConfigField 'String', "url_getcustw", toJavaCodeString(url_getcustw)
+        buildConfigField 'String', "url_tambahcustw", toJavaCodeString(url_tambahcustw)
+        buildConfigField 'String', "url_menuorder", toJavaCodeString(url_menuorder)
+        buildConfigField 'String', "url_addorder", toJavaCodeString(url_addorder)
+        buildConfigField 'String', "url_detailorder", toJavaCodeString(url_detailorder)
+        buildConfigField 'String', "url_listorderwaiter", toJavaCodeString(url_listorderwaiter)
+        buildConfigField 'String', "url_tambahorder", toJavaCodeString(url_tambahorder)
+        buildConfigField 'String', "url_editorder", toJavaCodeString(url_editorder)
+        buildConfigField 'String', "url_kosongkanmeja", toJavaCodeString(url_kosongkanmeja)
+        buildConfigField 'String', "url_pilihanmeja", toJavaCodeString(url_pilihanmeja)
+        buildConfigField 'String', "url_pindahmeja", toJavaCodeString(url_pindahmeja)
+        buildConfigField 'String', "url_antianmakanan", toJavaCodeString(url_antianmakanan)
+        buildConfigField 'String', "url_detailpesananmasuk", toJavaCodeString(url_detailpesananmasuk)
+        buildConfigField 'String', "url_prosespesanandapur", toJavaCodeString(url_prosespesanandapur)
+        buildConfigField 'String', "url_pesananselesaidapur", toJavaCodeString(url_pesananselesaidapur)
+        buildConfigField 'String', "url_pesananhabis", toJavaCodeString(url_pesananhabis)
+        buildConfigField 'String', "url_daftartagihan", toJavaCodeString(url_daftartagihan)
+        buildConfigField 'String', "url_tagihanselesai", toJavaCodeString(url_tagihanselesai)
+        buildConfigField 'String', "url_kirimkasir", toJavaCodeString(url_kirimkasir)
+        buildConfigField 'String', "url_berandadapur", toJavaCodeString(url_berandadapur)
+        buildConfigField 'String', "url_prosesbayar", toJavaCodeString(url_prosesbayar)
+        buildConfigField 'String', "url_hostname", toJavaCodeString(url_hostname)
+        buildConfigField 'String', "url_detailpesanankasir", toJavaCodeString(url_detailpesanankasir)
+        buildConfigField 'String', "url_tagihanpiutang", toJavaCodeString(url_tagihanpiutang)
+        buildConfigField 'String', "url_proseskredit", toJavaCodeString(url_proseskredit)
+        buildConfigField 'String', "url_getkas", toJavaCodeString(url_getkas)
+        buildConfigField 'String', "url_tambahkasmasuk", toJavaCodeString(url_tambahkasmasuk)
+        buildConfigField 'String', "url_getaruskas", toJavaCodeString(url_getaruskas)
+        buildConfigField 'String', "url_getotp", toJavaCodeString(url_getotp)
+        buildConfigField 'String', "url_cekotp", toJavaCodeString(url_cekotp)
+        buildConfigField 'String', "url_pasbaru", toJavaCodeString(url_pasbaru)
+        buildConfigField 'String', "url_versi", toJavaCodeString(url_versi)
+        buildConfigField 'String', "url_getprofil", toJavaCodeString(url_getprofil)
+        buildConfigField 'String', "url_editprofilpemilik", toJavaCodeString(url_editprofilpemilik)
+        buildConfigField 'String', "url_gambarprofil", toJavaCodeString(url_gambarprofil)
+        buildConfigField 'String', "url_ubahpas", toJavaCodeString(url_ubahpas)
+        buildConfigField 'String', "url_dapetbayar", toJavaCodeString(url_dapetbayar)
+        buildConfigField 'String', "url_laporanpenjualanpertanggal", toJavaCodeString(url_laporanpenjualanpertanggal)
+        buildConfigField 'String', "url_laporanpenjualanpermenu", toJavaCodeString(url_laporanpenjualanpermenu)
+        buildConfigField 'String', "url_laporanpenjualanperkat", toJavaCodeString(url_laporanpenjualanperkat)
+        buildConfigField 'String', "url_laporanpenjualanpercustomer", toJavaCodeString(url_laporanpenjualanpercustomer)
+        buildConfigField 'String', "url_laporanpiutang", toJavaCodeString(url_laporanpiutang)
+        buildConfigField 'String', "url_laporanprofit", toJavaCodeString(url_laporanprofit)
+        buildConfigField 'String', "url_analisaomzettanggal", toJavaCodeString(url_analisaomzettanggal)
+        buildConfigField 'String', "url_analisaomzetbulan", toJavaCodeString(url_analisaomzetbulan)
+        buildConfigField 'String', "url_analisaprofit", toJavaCodeString(url_analisaprofit)
+        buildConfigField 'String', "livesupport", toJavaCodeString(livesupport)
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    kotlinOptions{
+        jvmTarget = "1.8"
+    }
+}
+
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    implementation 'org.slf4j:slf4j-nop:1.7.25'
+    implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+    implementation "commons-logging:commons-logging-api:1.1"
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation("com.squareup.moshi:moshi:1.11.0")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.11.0")
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.4.0"
+
+}
+
+repositories {
+    mavenCentral()
+}

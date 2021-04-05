@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Forensika</string>
+    <string name="daftar">Daftar</string>
+    <string name="forensika">FORENSIKA</string>
+    <string name="todo">TODO</string>
+    <string name="masuk">Masuk</string>
+    <string name="masukkan_username">Masukkan Username</string>
+    <string name="masukkan_password">Masukkan Password</string>
+    <string name="ingat_saya">Ingat Saya</string>
+    <string name="lupa_sandi">Lupa Sandi ?</string>
+    <string name="belum_punya_akun">Belum Punya Akun ?</string>
+    <string name="error_username_empty">Username Tidak Boleh Kosong</string>
+    <string name="error_password_empty">Kata Sandi Tidak Boleh Kosong</string>
+    <string name="rekomendasi" >Rekomendasi: %s</string>
+    <string name="message_exit">Apakah Anda Yakin Ingin Keluar Aplikasi?</string>
+    <string name="functionality">Functionality</string>
+    <string name="characteristics">Characteristics</string>
+    <string name="next">Next</string>
+    <string name="message_exit_apps">Apakah Anda Yakin Ingin Keluar Aplikasi?</string>
+    <string name="yes">IYA</string>
+    <string name="no">TIDAK</string>
+    <string name="error_missing_message">Pilihan Tidak Boleh Kosong</string>
+    <string name="history">History</string>
+    <string name="aturan">Aturan: %s</string>
+    <string name="tool">Tool\t: %s</string>
+    <string-array name="functionality">
+        <item>Not Selected</item>
+        <item>Disk Imaging</item>
+        <item>Data Recovery</item>
+        <item>File Analysis</item>
+        <item>Document Metadata Extraction</item>
+        <item>Memory Imaging</item>
+        <item>Memory Analysis</item>
+        <item>Network Forensics</item>
+        <item>Logfile Analysis</item>
+        <item>Secure Deletion</item>
+        <item>Anti Forensics Tools</item>
+        <item>Mobile Forensics Tools</item>
+    </string-array>
+    
+    <string-array name="memory_requirement">
+        <item>Not Selected</item>
+        <item>Small</item>              <!--1-->
+        <item>Average</item>            <!--2-->
+        <item>Large</item>              <!--3-->
+    </string-array>
+    
+    <string-array name="processing_speed">
+        <item>Not Selected</item>
+        <item>Slow</item>               <!--4-->
+        <item>Average</item>            <!--5-->
+        <item>Fast</item>               <!--6-->
+    </string-array>
+    
+    <string-array name="output_format">
+        <item>Not Selected</item>
+        <item>Raw Data</item>            <!--7-->
+        <item>Average</item>             <!--8-->
+        <item>Interactive Report</item>  <!--9-->
+    </string-array>
+
+    <string-array name="required_skill">
+        <item>Not Selected</item>
+        <item>Very easy</item>           <!--10-->
+        <item>Average</item>             <!--11-->
+        <item>Very Difficult</item>      <!--12-->
+    </string-array>
+
+    <string-array name="cost">
+        <item>Not Selected</item>
+        <item>Very Cheap or Free</item>    <!--13-->
+        <item>Average</item>               <!--14-->
+        <item>Very Expensive</item>        <!--15-->
+    </string-array>
+    
+    <string-array name="exam_focus">
+        <item>Not Selected</item>
+        <item>Artifact Focus</item>         <!--16-->
+        <item>Average</item>                <!--17-->
+        <item>All-in-one Tool</item>        <!--18-->
+    </string-array>
+</resources>

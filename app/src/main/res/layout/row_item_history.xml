@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="@dimen/cardview_default_elevation"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    tools:targetApi="lollipop">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/image_Logo_Tools"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logoautopsy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_aturan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="@string/aturan"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_Logo_Tools"
+            app:layout_constraintTop_toTopOf="@+id/image_Logo_Tools" />
+
+        <TextView
+            android:id="@+id/tv_tool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/tool"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_created_at"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_Logo_Tools"
+            app:layout_constraintTop_toBottomOf="@+id/tv_aturan" />
+
+        <TextView
+            android:id="@+id/tv_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="Senin, 12 April 2020 . 12:30"
+            app:layout_constraintBottom_toBottomOf="@+id/image_Logo_Tools"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_Logo_Tools" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hijauatas">#014739</color>
+    <color name="merahaksen">#ED0606</color>
+    <color name="hijau">#46ab4b</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="abu1">#f0f0f0</color>
+    <color name="abu">#3a3a3b</color>
+    <color name="abumuda">#a7a7a7</color>
+    <color name="abubawah">#ebebeb</color>
+    <color name="backgroundhome">#f7f7f7</color>
+    <color name="abu2">#7c7c7c</color>
+    <color name="merah">#AD1B1B</color>
+    <color name="biruaktif">#6979F8</color>
+    <color name="birugkaktif">#69CBF8</color>
+    <color name="abumuda1">#B7B7B7</color>
+</resources>

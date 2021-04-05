@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/awal"
+        android:icon="@drawable/ic_home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_history"
+        android:title="History"/>
+
+
+
+    <item
+        android:id="@+id/checkbox_ingat_saya"
+        android:icon="@drawable/ic_check"
+        android:title="Check Tools"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"/>
+
+
+</menu>
+

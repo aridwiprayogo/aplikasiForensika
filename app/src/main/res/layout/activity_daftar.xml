@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Daftar"
+    android:orientation="vertical"
+    android:theme="@style/MaterialAppTheme"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/hijauatas">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_bck"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/bck"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/mulibold"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:text="Buat Akunmu"
+                android:fontFamily="@font/mulibold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                style="@style/TextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textview_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/muliregular"
+                    android:hint="Masukkan Username"
+                    android:textColorHint="@color/black"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                style="@style/TextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/em"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/muliregular"
+                    android:hint="Masukkan Email"
+                    android:textColorHint="@color/black"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/KataSandi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="15dp"
+                app:passwordToggleDrawable="@drawable/showhidepassword"
+                android:layout_marginLeft="16dp"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#000"
+                style="@style/TextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textview_sandi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/muliregular"
+                    android:hint="Masukkan Password"
+                    android:textColorHint="@color/black"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/konKataSandi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="15dp"
+                app:passwordToggleDrawable="@drawable/showhidepassword"
+                android:layout_marginLeft="16dp"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#000"
+                style="@style/TextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/konKatasandi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/muliregular"
+                    android:hint="Masukkan Konfirmasi Password"
+                    android:textColorHint="@color/black"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_hijau"
+                android:text="DAFTAR"
+                android:id="@+id/daftar"
+                android:textSize="18sp"
+                android:fontFamily="@font/mulibold"
+                android:textColor="@color/white"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dengan Melakukan Pendaftaran Berarti Anda Telah Menyetujui Syarat dan Ketentuan"
+                android:textSize="15sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/checkbox_ingat_saya"
+                android:textColor="@color/black"
+                android:fontFamily="@font/muliregular"
+                android:layout_centerVertical="true"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

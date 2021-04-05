@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutDialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
+        android:paddingRight="30dp"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/kotak_putih">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:id="@+id/pesan"
+                android:textAlignment="center"
+                android:fontFamily="@font/muliregular"
+                android:text="Apakah Anda sudah sampai\ntujuan dan ingin mengakhiri\nperjalanan ini?"
+                android:gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_hijau"
+                android:layout_gravity="right"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:text="IYA"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/mulibold"
+                android:id="@+id/butok"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_abu"
+                android:layout_gravity="right"
+                android:textSize="18dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/white"
+                android:text="TIDAK"
+                android:fontFamily="@font/mulibold"
+                android:id="@+id/buttdk"
+                />
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+</RelativeLayout>
