@@ -11,7 +11,7 @@
     <string name="belum_punya_akun">Belum Punya Akun ?</string>
     <string name="error_username_empty">Username Tidak Boleh Kosong</string>
     <string name="error_password_empty">Kata Sandi Tidak Boleh Kosong</string>
-    <string name="rekomendasi" >Rekomendasi: %s</string>
+    <string name="rekomendasi">Rekomendasi: %s</string>
     <string name="message_exit">Apakah Anda Yakin Ingin Keluar Aplikasi?</string>
     <string name="functionality">Functionality</string>
     <string name="characteristics">Characteristics</string>
@@ -37,21 +37,21 @@
         <item>Anti Forensics Tools</item>
         <item>Mobile Forensics Tools</item>
     </string-array>
-    
+
     <string-array name="memory_requirement">
         <item>Not Selected</item>
         <item>Small</item>              <!--1-->
         <item>Average</item>            <!--2-->
         <item>Large</item>              <!--3-->
     </string-array>
-    
+
     <string-array name="processing_speed">
         <item>Not Selected</item>
         <item>Slow</item>               <!--4-->
         <item>Average</item>            <!--5-->
         <item>Fast</item>               <!--6-->
     </string-array>
-    
+
     <string-array name="output_format">
         <item>Not Selected</item>
         <item>Raw Data</item>            <!--7-->
@@ -72,7 +72,7 @@
         <item>Average</item>               <!--14-->
         <item>Very Expensive</item>        <!--15-->
     </string-array>
-    
+
     <string-array name="exam_focus">
         <item>Not Selected</item>
         <item>Artifact Focus</item>         <!--16-->

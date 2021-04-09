@@ -15,5 +15,6 @@ data class User(
     val id: Int,
     val name: String,
     @Json(name = "updated_at")
-    val updatedAt: String
+    val updatedAt: String,
+    val role: String?
 )

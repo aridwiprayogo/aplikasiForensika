@@ -37,7 +37,7 @@ class LupaPassword : AppCompatActivity() {
         edemail = findViewById<EditText>(R.id.edemail)
         butkonfirm = findViewById<Button>(R.id.konfirm)
         bck = findViewById<ImageButton>(R.id.bck)
-        edsandibaru = findViewById<EditText>(R.id.edpassbaru)
+        edsandibaru = findViewById<EditText>(R.id.et_password_baru)
         edkonsandi = findViewById<EditText>(R.id.edkonpasbaru)
         butkonfirm.setOnClickListener {
             if (linemail.visibility == View.VISIBLE) {

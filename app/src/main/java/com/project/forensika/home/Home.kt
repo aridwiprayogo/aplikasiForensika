@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.forensika.Check
-import com.project.forensika.Profile
+import com.project.forensika.profile.Profile
 import com.project.forensika.R
 import com.project.forensika.history.History
 import com.project.forensika.model.RecommendationTools
@@ -71,7 +71,9 @@ class Home : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedL
                     adapter.addItem(recommendationTools?.result!!)
                     Toast.makeText(this@Home, "success", Toast.LENGTH_SHORT).show()
                 }
-
+                if(response.code()==401){
+                    finish()
+                }
                 Toast.makeText(this@Home, response.message(), Toast.LENGTH_SHORT).show()
             }
 

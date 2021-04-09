@@ -64,14 +64,12 @@ class MainActivity : AppCompatActivity() {
                             val sharedPrefUtils = SharedPreferencesUtils(this@MainActivity)
                             sharedPrefUtils.token = userResponse.accessToken
                             pindahHalamanHome()
-                            call.cancel()
                         }
                     }
 
                     override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                         t.printStackTrace()
                         Toast.makeText(this@MainActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
-                        call.cancel()
                     }
 
                 })

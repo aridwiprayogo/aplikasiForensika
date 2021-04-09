@@ -1,18 +1,23 @@
 package com.project.forensika.history
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.project.forensika.R
 import com.project.forensika.model.History
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     private val listHistory = arrayListOf<History.Result>()
+    private var activate: Boolean = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -30,48 +35,71 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val history = listHistory[position]
 
-        holder.run{
-            bind(history)
-        }
+        val context = holder.itemView.context
 
-        holder.itemView.setOnClickListener {
-//            val intent = Intent(context, HistoryDetail::class.java)
-//            intent.putExtra(ID_APLIKASI, history.idAplikasi)
-//            intent.putExtra(ID_ATURAN, history.idAturan)
-//            context.startActivity(intent)
+        holder.run {
+            bind(history)
+
+            itemView.setOnClickListener {
+                activateButtons(holder)
+            }
+
+            buttonDetail.setOnClickListener {
+                val intent = Intent(context, HistoryDetailActivity::class.java)
+                intent.putExtra(ID_HISTORY,history.id)
+                context.startActivity(intent)
+            }
         }
     }
 
-    override fun getItemCount()= listHistory.size
+    private fun activateButtons(holder: ViewHolder) {
+        if (activate) {
+            holder.buttonDetail.visibility = VISIBLE
+            holder.buttonHapus.visibility = VISIBLE
+            activate = false
+        } else {
+            holder.buttonDetail.visibility = GONE
+            holder.buttonHapus.visibility = GONE
+            activate = true
+        }
+        notifyDataSetChanged()
+    }
+
+    override fun getItemCount() = listHistory.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageViewTools: ImageView
         private val textViewAturan: TextView
         private val textViewTool: TextView
         private val textViewDate: TextView
+        internal val buttonDetail: Button
+        internal val buttonHapus: Button
 
         init {
             itemView.apply {
                 imageViewTools = findViewById(R.id.image_Logo_Tools)
                 textViewAturan = findViewById(R.id.tv_aturan)
-                textViewTool   = findViewById(R.id.tv_tool)
-                textViewDate   = findViewById(R.id.tv_created_at)
+                textViewTool = findViewById(R.id.tv_tool)
+                textViewDate = findViewById(R.id.tv_created_at)
+                buttonDetail = findViewById(R.id.btn_detail)
+                buttonHapus = findViewById(R.id.btn_hapus)
             }
         }
 
         fun bind(history: History.Result) {
             val context = itemView.context
-//            Glide.with(itemView)
-//                    .load(history)
-//                    .into(imageViewTools)
+            Glide.with(itemView)
+                    .load(history.fotoAplikasi)
+                    .into(imageViewTools)
             textViewAturan.text = context.getString(R.string.aturan, history.namaAturan)
             textViewTool.text = context.getString(R.string.tool, history.namaAplikasi)
-            textViewDate.text = history.id.toString()
+            textViewDate.text = history.createdAt
         }
     }
 
     private companion object {
         const val ID_APLIKASI: String = "ID APLIKASI"
         const val ID_ATURAN: String = "ID ATURAN"
+        const val ID_HISTORY: String = "ID HISTORY"
     }
 }

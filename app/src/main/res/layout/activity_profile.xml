@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Profile">
+    tools:context=".profile.Profile">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -44,11 +44,9 @@
                 android:src="@drawable/cthprofil" />
 
             <LinearLayout
-                android:id="@+id/linedtprofil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
                 <!---->
                 <TextView
                     android:layout_width="wrap_content"
@@ -67,10 +65,10 @@
                     android:background="@drawable/form"
                     android:fontFamily="@font/muliregular"
                     android:paddingBottom="5dp"
-                    android:text="Isinama"
+                    android:text="Nama Belum ada"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
                 <!---->
                 <EditText
                     android:id="@+id/ednama"
@@ -82,6 +80,8 @@
                     android:imeOptions="actionDone"
                     android:inputType="text"
                     android:paddingBottom="5dp"
+                    android:hint="nama"
+                    android:visibility="gone"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
                 <!---->
@@ -101,10 +101,11 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/form"
                     android:fontFamily="@font/muliregular"
+                    android:text="Email Belum Ada"
                     android:paddingBottom="5dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:visibility="gone" />
+                    />
                 <!---->
                 <EditText
                     android:id="@+id/edemail"
@@ -115,10 +116,11 @@
                     android:fontFamily="@font/muliregular"
                     android:imeOptions="actionDone"
                     android:inputType="textEmailAddress"
-                    android:paddingBottom="5dp"
-                    android:text="Isiemail"
+                    android:padding="5dp"
+                    android:hint="email"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:visibility="gone" />
                 <!---->
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,110 +138,10 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/form"
                     android:fontFamily="@font/muliregular"
+                    android:text="investigator"
                     android:paddingBottom="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:visibility="gone" />
-                <!---->
-                <EditText
-                    android:id="@+id/edrole"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/form"
-                    android:fontFamily="@font/muliregular"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
-                    android:paddingBottom="5dp"
-                    android:text="IsiRole"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linubhpas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/jud2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/mulibold"
-                    android:text="Kata Sandi Lama"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
-                    android:id="@+id/edpasslama"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/form"
-                    android:fontFamily="@font/muliregular"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:drawable_hide="@drawable/mataon"
-                    app:drawable_show="@drawable/mataoff"
-                    app:tint_color="@color/black" />
-
-                <TextView
-                    android:id="@+id/jud3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/mulibold"
-                    android:text="Kata Sandi Baru"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
-                    android:id="@+id/edpassbaru"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/form"
-                    android:fontFamily="@font/muliregular"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:drawable_hide="@drawable/mataon"
-                    app:drawable_show="@drawable/mataoff"
-                    app:tint_color="@color/black" />
-
-                <TextView
-                    android:id="@+id/jud4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/mulibold"
-                    android:text="Konfirmasi Kata Sandi Baru"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
-                    android:id="@+id/edkonpasbaru"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/form"
-                    android:fontFamily="@font/muliregular"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:drawable_hide="@drawable/mataon"
-                    app:drawable_show="@drawable/mataoff"
-                    app:tint_color="@color/black" />
 
             </LinearLayout>
 

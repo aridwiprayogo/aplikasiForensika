@@ -19,6 +19,10 @@ data class History(
         @Json(name = "nama_aplikasi")
         val namaAplikasi: String,
         @Json(name = "nama_aturan")
-        val namaAturan: String
+        val namaAturan: String,
+        @Json(name = "foto_aplikasi")
+        val fotoAplikasi: String,
+        @Json(name = "created_at")
+        val createdAt: String,
     )
 }
