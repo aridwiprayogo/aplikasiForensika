@@ -9,10 +9,10 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.project.forensika.Check
 import com.project.forensika.MainActivity
 import com.project.forensika.R
 import com.project.forensika.SharedPrefUtils
+import com.project.forensika.checktools.CheckTools
 import com.project.forensika.history.History
 import com.project.forensika.home.Home
 import com.project.forensika.model.UserProfile
@@ -31,8 +31,6 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
     private lateinit var textNama: TextView
     private lateinit var textEmail: TextView
     private lateinit var textRole: TextView
-    private lateinit var linprofil: LinearLayout
-    private lateinit var linpass: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,29 +64,13 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
             val intent = Intent(this@Profile, EditPasswordProfileActivity::class.java)
             startActivity(intent)
         }
-
         val sharedPreferencesUtils = SharedPreferencesUtils(this)
         val token = sharedPreferencesUtils.token
         val header = mapOf(
                 "Authorization" to token
         )
 
-        ApiConfig.create().getProfile(header).enqueue(object : Callback<UserProfile?> {
-            override fun onResponse(call: Call<UserProfile?>, response: Response<UserProfile?>) {
-                if (response.isSuccessful) {
-                    val userProfile: UserProfile? = response.body()
-                    val (_, _, email: String, _, _, name: String, role, _: String?) = userProfile?.result!!
-                    textNama.text = name
-                    textEmail.text = email
-                    textRole.text = role
-                }
-            }
-
-            override fun onFailure(call: Call<UserProfile?>, t: Throwable) {
-                t.printStackTrace()
-
-            }
-        })
+        getDataProfile(header)
 
         keluar.setOnClickListener {
             val builder = AlertDialog.Builder(this@Profile, R.style.AlertDialog)
@@ -104,6 +86,7 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
             iya.text = "IYA"
             tdk.text = "TIDAK"
             iya.setOnClickListener {
+                ApiConfig.create().logout(header)
                 alertDialog.cancel()
                 SharedPrefUtils.logOut(this@Profile)
                 val intentrwyt = Intent(this@Profile, MainActivity::class.java)
@@ -121,6 +104,37 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
         }
     }
 
+    override fun onRestart() {
+        super.onRestart()
+
+        val sharedPreferencesUtils = SharedPreferencesUtils(this)
+        val token = sharedPreferencesUtils.token
+        val header = mapOf(
+                "Authorization" to token
+        )
+        getDataProfile(header)
+    }
+
+    private fun getDataProfile(header: Map<String, String>) {
+
+        ApiConfig.create().getProfile(header).enqueue(object : Callback<UserProfile?> {
+            override fun onResponse(call: Call<UserProfile?>, response: Response<UserProfile?>) {
+                if (response.isSuccessful) {
+                    val userProfile: UserProfile? = response.body()
+                    val (_, _, email: String, _, _, name: String, role, _: String?) = userProfile?.result!!
+                    textNama.text = name
+                    textEmail.text = email
+                    textRole.text = role
+                }
+            }
+
+            override fun onFailure(call: Call<UserProfile?>, t: Throwable) {
+                t.printStackTrace()
+
+            }
+        })
+    }
+
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             R.id.awal -> {
@@ -136,7 +150,7 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
                 finish()
             }
             R.id.checkbox_ingat_saya -> {
-                val intentBantuan = Intent(this@Profile, Check::class.java)
+                val intentBantuan = Intent(this@Profile, CheckTools::class.java)
                 startActivity(intentBantuan)
                 overridePendingTransition(R.anim.no_slide, R.anim.no_slide)
                 finish()

@@ -9,10 +9,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.project.forensika.R
 import com.project.forensika.model.History
+import com.project.forensika.network.ApiConfig
+import com.project.forensika.preferences.SharedPreferencesUtils
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
@@ -48,6 +54,31 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
                 val intent = Intent(context, HistoryDetailActivity::class.java)
                 intent.putExtra(ID_HISTORY,history.id)
                 context.startActivity(intent)
+            }
+
+            val sharedPreferencesUtils = SharedPreferencesUtils(context)
+            val token = sharedPreferencesUtils.token
+            val header = mapOf(
+                    "Authorization" to token
+            )
+
+            buttonHapus.setOnClickListener {
+                ApiConfig.create().deleteHistory(header, history.id).enqueue(object : Callback<Map<String, String>?> {
+                    override fun onResponse(call: Call<Map<String, String>?>, response: Response<Map<String, String>?>) {
+                        val map = response.body()
+                        val status = map?.get("status")
+                        if (response.isSuccessful) {
+                            listHistory.removeAt(position)
+                            notifyItemRemoved(position)
+                            Toast.makeText(context, status, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Map<String, String>?>, t: Throwable) {
+                        t.printStackTrace()
+                        Toast.makeText(context, t.localizedMessage, Toast.LENGTH_SHORT).show()
+                    }
+                })
             }
         }
     }

@@ -42,6 +42,13 @@ interface ApiService {
             @Path("id_history") idHistory: Int
     ): Call<HistoryDetail>
 
+    @GET("/api/history/delete/{id_history}")
+    @Headers("Accept: application/json")
+    fun deleteHistory(
+            @HeaderMap header: Map<String, String>,
+            @Path("id_history") idHistory: Int
+    ): Call<Map<String,String>>
+
     @POST("/api/check-tools")
     fun checkTools(
             @HeaderMap header: Map<String, String>,
@@ -72,4 +79,8 @@ interface ApiService {
             @Field("password") password: String,
             @Field("password_confirmation") konfirmasiPassword: String
     ): Call<ResponseMessage>
+
+    @GET("/api/profile")
+    @Headers("Accept: application/json")
+    fun logout(header: Map<String, String>)
 }

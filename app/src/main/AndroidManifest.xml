@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".history.HistoryDetailActivity"></activity>
+        <activity android:name=".checktools.AplikasiActivity"></activity>
+        <activity android:name=".history.HistoryDetailActivity" />
         <activity android:name=".profile.EditProfileActivity" />
         <activity android:name=".profile.EditPasswordProfileActivity" />
         <activity
@@ -27,7 +28,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".Check"
+            android:name=".checktools.CheckTools"
             android:screenOrientation="portrait" />
         <activity
             android:name=".history.History"

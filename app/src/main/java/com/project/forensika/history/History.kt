@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.forensika.*
+import com.project.forensika.checktools.CheckTools
 import com.project.forensika.home.Home
 import com.project.forensika.model.History
 import com.project.forensika.network.ApiConfig
@@ -100,7 +101,7 @@ class History : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
             R.id.history -> {
             }
             R.id.checkbox_ingat_saya -> {
-                val intentkandidat = Intent(this@History, Check::class.java)
+                val intentkandidat = Intent(this@History, CheckTools::class.java)
                 startActivity(intentkandidat)
                 overridePendingTransition(R.anim.no_slide, R.anim.no_slide)
                 finish()

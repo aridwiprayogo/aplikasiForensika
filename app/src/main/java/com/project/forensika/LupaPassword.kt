@@ -2,12 +2,10 @@ package com.project.forensika
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -117,45 +115,17 @@ class LupaPassword : AppCompatActivity() {
                     alertDialog.setCancelable(true)
                     alertDialog.show()
                 } else {
-                    val intentrwyt = Intent(this@LupaPassword, MainActivity::class.java)
-                    intentrwyt.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intentrwyt)
+                    val intent = Intent(this@LupaPassword, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
                     overridePendingTransition(R.anim.slide_in_right, R.anim.no_slide)
                     finish()
                 }
             }
         }
-        butkonfirm.setOnTouchListener { v, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    val view = v as Button
-                    view.background.setColorFilter(resources.getColor(R.color.abumuda), PorterDuff.Mode.SRC_ATOP)
-                    view.invalidate()
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    val view = v as Button
-                    view.background.clearColorFilter()
-                    view.invalidate()
-                }
-            }
-            false
-        }
+
         bck.setOnClickListener { onBackPressed() }
-        bck.setOnTouchListener { v, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    val view = v as ImageButton
-                    view.background.setColorFilter(resources.getColor(R.color.abumuda), PorterDuff.Mode.SRC_ATOP)
-                    view.invalidate()
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    val view = v as ImageButton
-                    view.background.clearColorFilter()
-                    view.invalidate()
-                }
-            }
-            false
-        }
+
     }
 
     override fun onBackPressed() {

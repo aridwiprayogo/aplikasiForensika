@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.project.forensika.Check
+import com.project.forensika.checktools.CheckTools
 import com.project.forensika.profile.Profile
 import com.project.forensika.R
 import com.project.forensika.history.History
@@ -120,7 +120,7 @@ class Home : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedL
                 finish()
             }
             R.id.checkbox_ingat_saya -> {
-                val intentkandidat = Intent(this@Home, Check::class.java)
+                val intentkandidat = Intent(this@Home, CheckTools::class.java)
                 startActivity(intentkandidat)
                 overridePendingTransition(R.anim.no_slide, R.anim.no_slide)
                 finish()
