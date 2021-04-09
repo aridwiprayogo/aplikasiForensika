@@ -1,5 +1,6 @@
 package com.project.forensika.profile
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -67,28 +68,7 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
 
-        val sharedPreferencesUtils = SharedPreferencesUtils(this)
-        val token = sharedPreferencesUtils.token
-        val header = mapOf(
-                "Authorization" to token
-        )
-
-        ApiConfig.create().getProfile(header).enqueue(object : Callback<UserProfile?> {
-            override fun onResponse(call: Call<UserProfile?>, response: Response<UserProfile?>) {
-                if (response.isSuccessful) {
-                    val userProfile: UserProfile? = response.body()
-                    val (_, _, email: String, _, _, name: String, role, _: String?) = userProfile?.result!!
-                    textNama.text = name
-                    textEmail.text = email
-                    textRole.text = role
-                }
-            }
-
-            override fun onFailure(call: Call<UserProfile?>, t: Throwable) {
-                t.printStackTrace()
-
-            }
-        })
+        getDataProfile(this)
 
         keluar.setOnClickListener {
             val builder = AlertDialog.Builder(this@Profile, R.style.AlertDialog)
@@ -119,6 +99,37 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
             alertDialog.setCancelable(true)
             alertDialog.show()
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        getDataProfile(this)
+    }
+
+    private fun getDataProfile(profile: Context) {
+        val sharedPreferencesUtils = SharedPreferencesUtils(profile)
+        val token = sharedPreferencesUtils.token
+        val header = mapOf(
+                "Authorization" to token
+        )
+
+        ApiConfig.create().getProfile(header).enqueue(object : Callback<UserProfile?> {
+            override fun onResponse(call: Call<UserProfile?>, response: Response<UserProfile?>) {
+                if (response.isSuccessful) {
+                    val userProfile: UserProfile? = response.body()
+                    val (_, _, email: String, _, _, name: String, role, _: String?) = userProfile?.result!!
+                    textNama.text = name
+                    textEmail.text = email
+                    textRole.text = role
+                }
+            }
+
+            override fun onFailure(call: Call<UserProfile?>, t: Throwable) {
+                t.printStackTrace()
+
+            }
+        })
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
