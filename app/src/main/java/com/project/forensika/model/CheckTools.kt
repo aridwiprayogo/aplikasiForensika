@@ -7,10 +7,11 @@ import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
+@Parcelize
 data class CheckTools(
     val result: List<Result>,
     val status: String
-) {
+):Parcelable {
     @JsonClass(generateAdapter = true)
     @Parcelize
     data class Result(

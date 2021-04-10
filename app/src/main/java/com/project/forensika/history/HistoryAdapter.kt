@@ -47,7 +47,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
             bind(history)
 
             itemView.setOnClickListener {
-                activateButtons(holder)
+                activateButtons(holder,position)
             }
 
             buttonDetail.setOnClickListener {
@@ -83,17 +83,19 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
         }
     }
 
-    private fun activateButtons(holder: ViewHolder) {
+    private fun activateButtons(holder: ViewHolder, position: Int) {
+        holder.adapterPosition
         if (activate) {
             holder.buttonDetail.visibility = VISIBLE
             holder.buttonHapus.visibility = VISIBLE
             activate = false
+            notifyItemChanged(position)
         } else {
             holder.buttonDetail.visibility = GONE
             holder.buttonHapus.visibility = GONE
             activate = true
+            notifyItemChanged(position)
         }
-        notifyDataSetChanged()
     }
 
     override fun getItemCount() = listHistory.size
@@ -128,9 +130,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
         }
     }
 
-    private companion object {
-        const val ID_APLIKASI: String = "ID APLIKASI"
-        const val ID_ATURAN: String = "ID ATURAN"
+    companion object {
         const val ID_HISTORY: String = "ID HISTORY"
     }
 }
