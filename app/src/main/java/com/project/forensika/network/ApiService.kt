@@ -2,6 +2,7 @@ package com.project.forensika.network
 
 import com.project.forensika.model.*
 import com.project.forensika.model.payload.CheckToolsPayload
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -41,6 +42,13 @@ interface ApiService {
             @HeaderMap header: Map<String, String>,
             @Path("id_history") idHistory: Int
     ): Call<HistoryDetail>
+
+    @GET("/api/keterangan/{id_keterangan}")
+    @Headers("Accept: application/json")
+    fun getHistoryKeterangan(
+            @HeaderMap header: Map<String, String>,
+            @Path("id_keterangan") idKeterangan: Int
+    ): Call<ResponseBody>
 
     @GET("/api/history/delete/{id_history}")
     @Headers("Accept: application/json")
@@ -82,5 +90,5 @@ interface ApiService {
 
     @GET("/api/profile")
     @Headers("Accept: application/json")
-    fun logout(header: Map<String, String>)
+    fun logout(header: Map<String, String>): Call<Map<String, Any>>
 }
