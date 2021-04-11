@@ -58,8 +58,9 @@
 
     <RelativeLayout
         android:id="@+id/foot"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/menuNav"
@@ -70,5 +71,4 @@
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_menu" />
     </RelativeLayout>
-
 </RelativeLayout>

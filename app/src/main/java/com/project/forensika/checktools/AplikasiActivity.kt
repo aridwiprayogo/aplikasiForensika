@@ -1,13 +1,14 @@
 package com.project.forensika.checktools
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.project.forensika.R
-import com.project.forensika.model.CheckTools.*
+import com.project.forensika.model.CheckTools.Result
+import java.util.ArrayList
 
 class AplikasiActivity : AppCompatActivity() {
     private lateinit var imageViewTools: ImageView
@@ -20,7 +21,7 @@ class AplikasiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aplikasi)
 
-        val aplikasi = intent.getSerializableExtra(CheckTools.CHECK_TOOLS_RESULT) as Result
+        val aplikasiList: ArrayList<Result>? = intent.getParcelableArrayListExtra(CheckTools.CHECK_TOOLS_RESULT)
 
         imageViewTools = findViewById(R.id.image_Logo_Tools)
         textViewAturan = findViewById(R.id.tv_aturan)
@@ -28,12 +29,14 @@ class AplikasiActivity : AppCompatActivity() {
         textViewDate = findViewById(R.id.tv_created_at)
         buttonOk = findViewById(R.id.btn_ok)
 
-//        Glide.with(imageViewTools)
-//                .load(aplikasi.fotoAplikasi)
-//                .into(imageViewTools)
-        textViewAturan.text = getString(R.string.aturan, aplikasi.namaAturan)
-        textViewTool.text = getString(R.string.tool, aplikasi.namaAplikasi)
-//        textViewDate.text = aplikasi.createdAt
+        aplikasiList?.forEach { aplikasi ->
+            textViewAturan.text = getString(R.string.aturan, aplikasi.namaAturan ?: "")
+            textViewTool.text = getString(R.string.tool, aplikasi.namaAplikasi ?: "")
+            Glide.with(imageViewTools)
+                    .load(aplikasi.fotoAplikasi)
+                    .into(imageViewTools)
+            textViewDate.text = aplikasi.createdAt
+        }
 
         buttonOk.setOnClickListener {
             finish()

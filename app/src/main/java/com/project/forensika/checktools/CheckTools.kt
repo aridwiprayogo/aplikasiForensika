@@ -10,6 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.project.forensika.NotFoundActivity
 import com.project.forensika.R
 import com.project.forensika.history.History
 import com.project.forensika.home.Home
@@ -74,19 +75,19 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         setupSpinnerExamFocus()
 
         buttonNext.setOnClickListener {
-            if (functionality == null && functionality == 0) {
+            if (functionality == null || functionality == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            } else if (memoryRequirement == null && memoryRequirement == 0) {
+            }else if (memoryRequirement == null || memoryRequirement == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            } else if (processingSpeed == null && processingSpeed == 0) {
+            } else if (processingSpeed == null || processingSpeed == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            } else if (outputFormat == null && outputFormat == 0) {
+            }else if (outputFormat == null || outputFormat == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            } else if (requiredSkill == null && requiredSkill == 0) {
+            }else if (requiredSkill == null || requiredSkill == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            } else if (cost == null && cost == 0) {
+            }else if (cost == null || cost == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            } else if (examFocus == null && examFocus == 0) {
+            }else if (examFocus == null || examFocus == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
             } else {
                 val sharedPreferencesUtils = SharedPreferencesUtils(this)
@@ -111,10 +112,18 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
                     override fun onResponse(call: Call<CheckTools?>, response: Response<CheckTools?>) {
                         val checkTools: CheckTools? = response.body()
                         if (checkTools != null && response.isSuccessful) {
-                            val intent = Intent(this@CheckTools, AplikasiActivity::class.java)
-                            intent.putExtra(CHECK_TOOLS_RESULT, arrayOf(checkTools.result))
-                            startActivity(intent)
-                            Toast.makeText(this@CheckTools, checkTools.status, Toast.LENGTH_SHORT).show()
+                            val elements = checkTools.result
+                            val arrayList = ArrayList<CheckTools.Result>(elements)
+
+                            if (elements.isEmpty()) {
+                                        val intent = Intent(this@CheckTools, NotFoundActivity::class.java)
+                                        startActivity(intent)
+                                Toast.makeText(this@CheckTools, "kosong", Toast.LENGTH_SHORT).show()
+                            } else {
+                                val intent = Intent(this@CheckTools, AplikasiActivity::class.java)
+                                intent.putExtra(CHECK_TOOLS_RESULT, arrayList)
+                                startActivity(intent)
+                            }
                         }
                     }
 
@@ -157,43 +166,46 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
                         0 -> {
-                            this@CheckTools.functionality = 1
+                            this@CheckTools.functionality = 0
                         }
                         1 -> {
-                            this@CheckTools.functionality = 2
+                            this@CheckTools.functionality = 1
                         }
                         2 -> {
-                            this@CheckTools.functionality = 3
+                            this@CheckTools.functionality = 2
                         }
                         3 -> {
-                            this@CheckTools.functionality = 4
+                            this@CheckTools.functionality = 3
                         }
                         4 -> {
-                            this@CheckTools.functionality = 5
+                            this@CheckTools.functionality = 4
                         }
                         5 -> {
-                            this@CheckTools.functionality = 6
+                            this@CheckTools.functionality = 5
                         }
                         6 -> {
-                            this@CheckTools.functionality = 7
+                            this@CheckTools.functionality = 6
                         }
                         7 -> {
-                            this@CheckTools.functionality = 8
+                            this@CheckTools.functionality = 7
                         }
                         8 -> {
-                            this@CheckTools.functionality = 9
+                            this@CheckTools.functionality = 8
                         }
                         9 -> {
-                            this@CheckTools.functionality = 10
+                            this@CheckTools.functionality = 9
                         }
                         10 -> {
+                            this@CheckTools.functionality = 10
+                        }
+                        11 -> {
                             this@CheckTools.functionality = 11
                         }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                    this@CheckTools.functionality = 0
                 }
             }
         }
@@ -213,14 +225,23 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
-                        0 -> {this@CheckTools.memoryRequirement=0}
-                        1 -> {this@CheckTools.memoryRequirement=1}
-                        2 -> {this@CheckTools.memoryRequirement=2}
-                        3 -> {this@CheckTools.memoryRequirement=3}
+                        0 -> {
+                            this@CheckTools.memoryRequirement = 0
+                        }
+                        1 -> {
+                            this@CheckTools.memoryRequirement = 1
+                        }
+                        2 -> {
+                            this@CheckTools.memoryRequirement = 2
+                        }
+                        3 -> {
+                            this@CheckTools.memoryRequirement = 3
+                        }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    this@CheckTools.memoryRequirement = 0
 
                 }
             }
@@ -241,14 +262,23 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
-                        0 -> {this@CheckTools.processingSpeed=0}
-                        1 -> {this@CheckTools.processingSpeed=4}
-                        2 -> {this@CheckTools.processingSpeed=5}
-                        3 -> {this@CheckTools.processingSpeed=6}
+                        0 -> {
+                            this@CheckTools.processingSpeed = 0
+                        }
+                        1 -> {
+                            this@CheckTools.processingSpeed = 4
+                        }
+                        2 -> {
+                            this@CheckTools.processingSpeed = 5
+                        }
+                        3 -> {
+                            this@CheckTools.processingSpeed = 6
+                        }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    this@CheckTools.processingSpeed = 0
 
                 }
             }
@@ -269,14 +299,23 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
-                        0 -> {this@CheckTools.outputFormat=0}
-                        1 -> {this@CheckTools.outputFormat=7}
-                        2 -> {this@CheckTools.outputFormat=8}
-                        3 -> {this@CheckTools.outputFormat=9}
+                        0 -> {
+                            this@CheckTools.outputFormat = 0
+                        }
+                        1 -> {
+                            this@CheckTools.outputFormat = 7
+                        }
+                        2 -> {
+                            this@CheckTools.outputFormat = 8
+                        }
+                        3 -> {
+                            this@CheckTools.outputFormat = 9
+                        }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    this@CheckTools.outputFormat = 0
 
                 }
             }
@@ -297,14 +336,23 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
-                        0 -> {this@CheckTools.requiredSkill=0}
-                        1 -> {this@CheckTools.requiredSkill=10}
-                        2 -> {this@CheckTools.requiredSkill=11}
-                        3 -> {this@CheckTools.requiredSkill=12}
+                        0 -> {
+                            this@CheckTools.requiredSkill = 0
+                        }
+                        1 -> {
+                            this@CheckTools.requiredSkill = 10
+                        }
+                        2 -> {
+                            this@CheckTools.requiredSkill = 11
+                        }
+                        3 -> {
+                            this@CheckTools.requiredSkill = 12
+                        }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    this@CheckTools.requiredSkill = 0
 
                 }
             }
@@ -325,14 +373,23 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
-                        0 -> {this@CheckTools.cost=0}
-                        1 -> {this@CheckTools.cost=13}
-                        2 -> {this@CheckTools.cost=14}
-                        3 -> {this@CheckTools.cost=15}
+                        0 -> {
+                            this@CheckTools.cost = 0
+                        }
+                        1 -> {
+                            this@CheckTools.cost = 13
+                        }
+                        2 -> {
+                            this@CheckTools.cost = 14
+                        }
+                        3 -> {
+                            this@CheckTools.cost = 15
+                        }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    this@CheckTools.cost = 0
 
                 }
             }
@@ -353,14 +410,23 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
-                        0 -> {this@CheckTools.examFocus=0}
-                        1 -> {this@CheckTools.examFocus=16}
-                        2 -> {this@CheckTools.examFocus=17}
-                        3 -> {this@CheckTools.examFocus=18}
+                        0 -> {
+                            this@CheckTools.examFocus = 0
+                        }
+                        1 -> {
+                            this@CheckTools.examFocus = 16
+                        }
+                        2 -> {
+                            this@CheckTools.examFocus = 17
+                        }
+                        3 -> {
+                            this@CheckTools.examFocus = 18
+                        }
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    this@CheckTools.examFocus = 0
 
                 }
             }
@@ -418,7 +484,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         alertDialog.show()
     }
 
-    companion object{
+    companion object {
         const val CHECK_TOOLS_RESULT = "check tools result"
     }
 }
