@@ -90,5 +90,5 @@ interface ApiService {
 
     @GET("/api/profile")
     @Headers("Accept: application/json")
-    fun logout(header: Map<String, String>): Call<Map<String, Any>>
+    fun logout(@HeaderMap header: Map<String, String>): Call<Map<String, Any>>
 }

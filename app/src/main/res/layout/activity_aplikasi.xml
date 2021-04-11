@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:text="Senin, 12 April 2020 . 12:30"
+            tools:text="Senin, 12 April 2020 . 12:30"
             app:layout_constraintBottom_toBottomOf="@+id/image_Logo_Tools"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_Logo_Tools" />
@@ -65,7 +65,6 @@
             android:layout_margin="8dp"
             android:text="OK"
             android:textColor="#fff"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

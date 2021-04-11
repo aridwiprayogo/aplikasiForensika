@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.*
 import android.widget.*
 import androidx.annotation.RequiresApi
@@ -112,7 +113,9 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
                         val checkTools: CheckTools? = response.body()
                         if (checkTools != null && response.isSuccessful) {
                             val intent = Intent(this@CheckTools, AplikasiActivity::class.java)
-                            intent.putExtra(CHECK_TOOLS_RESULT, arrayOf(checkTools.result))
+                            val elements = checkTools.result
+                            val arrayList = ArrayList<CheckTools.Result>(elements)
+                            intent.putExtra(CHECK_TOOLS_RESULT,arrayList)
                             startActivity(intent)
                             Toast.makeText(this@CheckTools, checkTools.status, Toast.LENGTH_SHORT).show()
                         }
