@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.project.forensika.NotFoundActivity
 import com.project.forensika.R
 import com.project.forensika.history.History
 import com.project.forensika.home.Home
@@ -77,17 +76,17 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         buttonNext.setOnClickListener {
             if (functionality == null || functionality == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            }else if (memoryRequirement == null || memoryRequirement == 0) {
+            } else if (memoryRequirement == null || memoryRequirement == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
             } else if (processingSpeed == null || processingSpeed == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            }else if (outputFormat == null || outputFormat == 0) {
+            } else if (outputFormat == null || outputFormat == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            }else if (requiredSkill == null || requiredSkill == 0) {
+            } else if (requiredSkill == null || requiredSkill == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            }else if (cost == null || cost == 0) {
+            } else if (cost == null || cost == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
-            }else if (examFocus == null || examFocus == 0) {
+            } else if (examFocus == null || examFocus == 0) {
                 showAlertDialog(getString(R.string.error_missing_message))
             } else {
                 val sharedPreferencesUtils = SharedPreferencesUtils(this)
@@ -115,15 +114,9 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
                             val elements = checkTools.result
                             val arrayList = ArrayList<CheckTools.Result>(elements)
 
-                            if (elements.isEmpty()) {
-                                        val intent = Intent(this@CheckTools, NotFoundActivity::class.java)
-                                        startActivity(intent)
-                                Toast.makeText(this@CheckTools, "kosong", Toast.LENGTH_SHORT).show()
-                            } else {
-                                val intent = Intent(this@CheckTools, AplikasiActivity::class.java)
-                                intent.putExtra(CHECK_TOOLS_RESULT, arrayList)
-                                startActivity(intent)
-                            }
+                            val intent = Intent(this@CheckTools, AplikasiActivity::class.java)
+                            intent.putExtra(CHECK_TOOLS_RESULT, arrayList)
+                            startActivity(intent)
                         }
                     }
 
