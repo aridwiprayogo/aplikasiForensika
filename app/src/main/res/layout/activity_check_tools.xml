@@ -7,12 +7,13 @@
 
     <TextView
         android:id="@+id/textView_functionality"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:text="@string/functionality"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_functionality"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_functionality" />
 
@@ -28,7 +30,7 @@
         android:id="@+id/text_view_characteristics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        
         android:text="@string/characteristics"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -115,7 +117,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Output Format"
-        app:layout_constraintStart_toStartOf="@+id/spinner_Processing_speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_Processing_speed" />
 
     <TextView
@@ -134,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Cost"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_required_skill"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_required_skill" />
 

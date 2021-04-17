@@ -31,9 +31,9 @@ class AplikasiActivity : AppCompatActivity() {
 
         aplikasiList?.let { aplikasis->
             if (!aplikasis.isNullOrEmpty()) {
-                aplikasis.forEach {aplikasi->
-                    textViewAturan.text = getString(R.string.aturan, aplikasi.namaAturan ?: "")
-                    textViewTool.text = getString(R.string.tool, aplikasi.namaAplikasi ?: "")
+                aplikasis.forEach { aplikasi->
+                    textViewAturan.text = getString(R.string.aturan, aplikasi.namaAturan)
+                    textViewTool.text = getString(R.string.tool, aplikasi.namaAplikasi)
                     Glide.with(imageViewTools)
                             .load(aplikasi.fotoAplikasi)
                             .into(imageViewTools)

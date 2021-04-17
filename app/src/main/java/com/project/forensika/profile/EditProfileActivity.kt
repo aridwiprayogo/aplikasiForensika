@@ -26,12 +26,20 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+        val nama = intent.getStringExtra(Profile.NAMA_PROFILE)
+        val email = intent.getStringExtra(Profile.EMAIL_PROFILE)
+        val role = intent.getStringExtra(Profile.ROLE_PROFILE)
+
         editTextNama = findViewById(R.id.et_nama)
         editTextEmail = findViewById(R.id.et_email)
         editTextRole = findViewById(R.id.et_role)
 
         buttonSimpan = findViewById(R.id.button_simpan)
         buttonUbahPassword = findViewById(R.id.button_ubah_password)
+
+        editTextNama.setText(nama)
+        editTextEmail.setText(email)
+        editTextRole.setText(role)
 
         val sharedPreferencesUtils = SharedPreferencesUtils(this)
         val token = sharedPreferencesUtils.token

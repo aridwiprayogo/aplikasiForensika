@@ -56,7 +56,13 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
         keluar = findViewById(R.id.keluar)
 
         butedit.setOnClickListener {
+            val nama = textNama.text.toString()
+            val email = textEmail.text.toString()
+            val role = textRole.text.toString()
             val intent = Intent(this@Profile, EditProfileActivity::class.java)
+            intent.putExtra(NAMA_PROFILE, nama)
+            intent.putExtra(EMAIL_PROFILE, email)
+            intent.putExtra(ROLE_PROFILE, role)
             startActivity(intent)
         }
 
@@ -188,5 +194,11 @@ class Profile : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelect
         }
         alertDialog.setCancelable(true)
         alertDialog.show()
+    }
+
+    companion object{
+        const val NAMA_PROFILE = "nama profile"
+        const val EMAIL_PROFILE = "email profile"
+        const val ROLE_PROFILE = "role profile"
     }
 }
