@@ -156,7 +156,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerFunctionality.apply {
             adapter = arrayAdapterFunctionality
-            setSelection(1)
+            setSelection(2)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -217,7 +217,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerMemoryRequirement.apply {
             adapter = arrayAdapterFunctionality
-            setSelection(1)
+            setSelection(3)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -255,7 +255,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerProcessingSpeed.apply {
             adapter = arrayAdapterFunctionality
-            setSelection(1)
+            setSelection(3)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -331,7 +331,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRequiredSkill.apply {
             adapter = arrayAdapterFunctionality
-            setSelection(1)
+            setSelection(2)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -407,7 +407,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerExamFocus.apply {
             adapter = arrayAdapterFunctionality
-            setSelection(1)
+            setSelection(3)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
