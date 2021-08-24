@@ -9,6 +9,12 @@
     app:cardCornerRadius="@dimen/cardview_default_radius"
     tools:targetApi="lollipop">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

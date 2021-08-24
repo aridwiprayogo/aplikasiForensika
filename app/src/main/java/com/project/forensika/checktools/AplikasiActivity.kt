@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
 import com.project.forensika.R
 import com.project.forensika.model.CheckTools.Result
@@ -22,6 +23,14 @@ class AplikasiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_aplikasi)
 
         val aplikasiList: ArrayList<Result>? = intent.getParcelableArrayListExtra(CheckTools.CHECK_TOOLS_RESULT)
+
+        supportActionBar?.apply {
+
+            // show back button on toolbar
+            // on back button press, it will navigate to parent activity
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
 
         imageViewTools = findViewById(R.id.image_Logo_Tools)
         textViewAturan = findViewById(R.id.tv_aturan)
@@ -52,5 +61,10 @@ class AplikasiActivity : AppCompatActivity() {
         buttonOk.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

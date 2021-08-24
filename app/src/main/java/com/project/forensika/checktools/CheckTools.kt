@@ -98,15 +98,16 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
 
                 ApiConfig.create().checkTools(
                         header = headers,
-                        CheckToolsPayload(idFungsionalitas = functionality!!,
-                                listOf(
-                                        memoryRequirement!!,
-                                        processingSpeed!!,
-                                        outputFormat!!,
-                                        requiredSkill!!,
-                                        cost!!,
-                                        examFocus!!,
-                                ))
+                    request = CheckToolsPayload(idFungsionalitas = functionality!!,
+                        karakteristik = listOf(
+                            memoryRequirement!!,
+                            processingSpeed!!,
+                            outputFormat!!,
+                            requiredSkill!!,
+                            cost!!,
+                            examFocus!!,
+                        )
+                    )
                 ).enqueue(object : Callback<CheckTools?> {
                     override fun onResponse(call: Call<CheckTools?>, response: Response<CheckTools?>) {
                         val checkTools: CheckTools? = response.body()
@@ -155,6 +156,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerFunctionality.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -215,6 +217,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerMemoryRequirement.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -252,6 +255,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerProcessingSpeed.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -289,6 +293,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerOutputFormat.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -326,6 +331,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRequiredSkill.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -363,6 +369,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCost.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {
@@ -400,6 +407,7 @@ class CheckTools : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
         arrayAdapterFunctionality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerExamFocus.apply {
             adapter = arrayAdapterFunctionality
+            setSelection(1)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when (position) {

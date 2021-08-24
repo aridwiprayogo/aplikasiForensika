@@ -15,8 +15,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".NotFoundActivity"></activity>
-        <activity android:name=".checktools.AplikasiActivity" />
+        <activity android:name=".checktools.AplikasiActivity"
+            android:theme="@style/Theme.AppCompat.Light"
+            />
         <activity android:name=".history.HistoryDetailActivity" />
         <activity android:name=".profile.EditProfileActivity" />
         <activity android:name=".profile.EditPasswordProfileActivity" />
